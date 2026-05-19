@@ -109,9 +109,6 @@ section,
   min-width: 0;
 }
 
-section {
-  background: var(--off-white);
-}
 img {
   max-width: 100%;
   display: block;
