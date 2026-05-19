@@ -870,12 +870,69 @@ function getByPath(source, path) {
     }
   });
 
-  // Form submission
+  /* ============================================================
+     UPDATED RESERVATION FORM SUBMISSION — CONNECTED TO BACKEND
+     ============================================================ */
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      alert('Thank you! We received your information. Please visit us in person to complete the mailbox setup.');
-      closeModal();
+
+      // Gather form values based on standard naming conventions
+      // Double check that your HTML input fields match these IDs (e.g., id="res-name")
+      const nameEl = document.getElementById('res-name') || document.getElementById('name');
+      const companyEl = document.getElementById('res-company') || document.getElementById('company');
+      const phoneEl = document.getElementById('res-phone') || document.getElementById('phone');
+      const emailEl = document.getElementById('res-email') || document.getElementById('email');
+      // Grab the current size from your quote calculator state if available, or a fallback dropdown/input
+      const mailboxTypeSelect = document.getElementById('quote-size-select');
+      const mailboxType = mailboxTypeSelect ? mailboxTypeSelect.value : 'Personal';
+
+      // Visual loading state
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.textContent : 'Submit';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
+      const payload = {
+        name: nameEl?.value?.trim() || '',
+        company: companyEl?.value?.trim() || '',
+        phone: phoneEl?.value?.trim() || '',
+        email: emailEl?.value?.trim() || '',
+        mailboxType: mailboxType
+      };
+
+      try {
+        // Pointing directly to your local relative route since the server hosts both the files and API
+        const response = await fetch('/api/mailbox-lead', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          alert('Thank you! Your mailbox reservation lead has been submitted successfully.');
+          closeModal();
+        } else {
+          // Captures validation messages from rate-limiting or express-validator
+          alert(`Submission error: ${result.error || 'Please check your information and try again.'}`);
+        }
+      } catch (err) {
+        console.error('Network submission failed:', err);
+        alert('Unable to connect to the server. Please try again later.');
+      } finally {
+        // Restore button state
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      }
     });
   }
 
