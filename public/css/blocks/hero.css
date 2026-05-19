@@ -52,7 +52,7 @@
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.04em;
-  color: var(--navy);
+  color: var(--text-heading);
   margin-bottom: var(--space-24);
 }
 
@@ -64,8 +64,8 @@
 }
 
 .hero__body {
-  color: var(--body-text);
-  font-size: var(--fs-body-fluid);
+  color: var(--text-body-main);
+  font-size: var(--fs-section-subheading);
   line-height: 1.6;
   max-width: 52ch;
   margin-bottom: var(--space-32);

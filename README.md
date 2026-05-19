@@ -47,6 +47,26 @@ Each page entry imports only the required block styles from css/blocks.
 - Relative links inside public pages use same-root paths (for example: index.html, services.html, css/..., js/...).
 - BEM naming is used for class architecture in block CSS.
 
+### BEM Naming Guide
+
+Use this format consistently:
+
+- Block: `.block`
+- Element: `.block__element`
+- Modifier: `.block--modifier` or `.block__element--modifier`
+
+Rules:
+
+- Use only one `__` boundary per class name. Do not nest elements like `.block__element__icon`.
+- If you need a sub-part of an element, use a hyphen suffix: `.block__element-icon`.
+- Keep modifiers state-like and explicit: `.faq-item--open`, `.btn--navy`.
+- Avoid orphan classes in HTML. Every semantic class should have a CSS selector (or be an intentional utility class).
+
+Examples:
+
+- Good: `.nav__brand-icon`, `.quote__pricing-trigger-icon`, `.faq-item__answer-inner`
+- Avoid: `.nav__brand__icon`, `.quote__trigger__icon`
+
 ## Architecture Notes
 
 Shared block CSS (imported across multiple pages):

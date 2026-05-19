@@ -12,26 +12,25 @@
 .service__heading {
   margin: var(--space-8) 0 0;
   font-family: "Inter", sans-serif;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-size: var(--fs-section-heading);
   font-weight: 900;
   line-height: 1.12;
   letter-spacing: -0.03em;
   text-wrap: balance;
-  color: var(--navy);
+  color: var(--text-heading);
 }
 
 .service__heading--gradient {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-heading);
+  background: none;
+  -webkit-text-fill-color: currentColor;
 }
 
 .service__sub {
-  color: var(--body-text);
+  color: var(--text-body-main);
   margin: 0 auto;
   line-height: 1.6;
-  font-size: 1.04rem;
+  font-size: var(--fs-section-subheading);
 }
 
 .service__grid {
@@ -91,8 +90,8 @@
 
 .detailed-service-card__title {
   font-family: "Inter", sans-serif;
-  font-size: 1.25rem;
-  color: var(--navy);
+  font-size: clamp(1.08rem, 1.02rem + 0.24vw, 1.2rem);
+  color: var(--text-heading);
   font-weight: 800;
   margin-bottom: var(--space-16);
   padding-bottom: var(--space-16);
@@ -115,8 +114,8 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 0.9rem;
-  color: var(--body-text);
+  font-size: var(--fs-body-sm);
+  color: var(--text-body-main);
   line-height: 1.5;
 }
 
@@ -138,8 +137,8 @@
 
 /* Description Text */
 .detailed-service-card__desc {
-  font-size: 0.9rem;
-  color: var(--body-text);
+  font-size: var(--fs-body-sm);
+  color: var(--text-body-main);
   line-height: 1.6;
   opacity: 0.9;
   margin: 0;
@@ -162,8 +161,8 @@
 }
 
 .detailed-service-card__price-label {
-  font-size: 0.7rem;
-  color: var(--muted);
+  font-size: var(--fs-tag);
+  color: var(--text-body-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 700;
@@ -171,7 +170,7 @@
 
 .detailed-service-card__price {
   font-size: 1.35rem;
-  color: var(--navy);
+  color: var(--text-heading);
   font-weight: 900;
   font-family: "Inter", sans-serif;
   line-height: 1;
@@ -193,17 +192,17 @@
 
 .service__supplies-text {
   margin: 0;
-  color: var(--body-text);
-  font-size: 0.9rem;
+  color: var(--text-body-main);
+  font-size: var(--fs-body-sm);
   line-height: 1.5;
 }
 
 .service__supplies-text strong {
-  color: var(--navy);
+  color: var(--text-heading);
 }
 
 .service__supplies-strong {
-  color: var(--navy);
+  color: var(--text-heading);
 }
 
 /* ── RESPONSIVE ──────────────────────────────────────── */

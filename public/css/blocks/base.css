@@ -61,6 +61,18 @@
   --fs-h3-fluid: clamp(1.563rem, 1.25rem + 1.2vw, 2.2rem);
   --fs-ui-fluid: clamp(0.8rem, 0.75rem + 0.2vw, 0.95rem);
 
+  --text-heading: var(--navy);
+  --text-body-main: var(--body-text);
+  --text-body-muted: var(--muted);
+  --text-on-dark-main: rgba(255, 255, 255, 0.84);
+  --text-on-dark-muted: rgba(255, 255, 255, 0.72);
+  --text-on-dark-subtle: rgba(255, 255, 255, 0.52);
+
+  --fs-tag: clamp(0.68rem, 0.65rem + 0.12vw, 0.76rem);
+  --fs-section-heading: clamp(1.8rem, 1.4rem + 1.5vw, 2.6rem);
+  --fs-section-subheading: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
+  --fs-body-sm: clamp(0.86rem, 0.83rem + 0.14vw, 0.92rem);
+
   --section-pad-y: clamp(24px, 1.8vw, 32px);
   --section-pad-x: clamp(16px, 2.2vw, 32px);
 }
@@ -173,16 +185,14 @@ button {
   letter-spacing: -0.03em;
 }
 .gradient-text {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-heading);
+  background: none;
+  -webkit-text-fill-color: currentColor;
 }
 .kraft-gradient-text {
-  background: linear-gradient(135deg, var(--kraft) 0%, var(--kraft-dark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-heading);
+  background: none;
+  -webkit-text-fill-color: currentColor;
 }
 
 /* ============================================================ SECTION TAG */
@@ -192,7 +202,7 @@ button {
   border: 1px solid rgba(185, 142, 90, 0.35);
   color: var(--kraft-dark);
   font-family: "Inter", sans-serif;
-  font-size: 0.72rem;
+  font-size: var(--fs-tag);
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -343,7 +353,7 @@ body > section + section {
   border: 1px solid rgba(185, 142, 90, 0.35);
   color: var(--kraft-dark);
   font-family: "Inter", sans-serif;
-  font-size: 0.72rem;
+  font-size: var(--fs-tag);
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -356,23 +366,23 @@ body > section + section {
 /* Section Title */
 .section-title {
   font-family: "Inter", sans-serif;
-  font-size: var(--fs-h2-fluid);
+  font-size: var(--fs-section-heading);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: var(--space-24, 24px); /* Title to Desc gap */
   letter-spacing: -0.02em;
+  color: var(--text-heading);
 }
 .section-title--gradient {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-heading);
+  background: none;
+  -webkit-text-fill-color: currentColor;
 }
 
 /* Section Description */
 .section-desc {
-  font-size: var(--fs-1);
-  color: var(--muted);
+  font-size: var(--fs-section-subheading);
+  color: var(--text-body-main);
   margin-left: auto;
   margin-right: auto;
   max-width: 62ch;
@@ -387,18 +397,18 @@ body > section + section {
   .section-tag {
     margin-bottom: var(--space-8, 8px);
     padding: 6px 12px;
-    font-size: 0.66rem;
+    font-size: var(--fs-tag);
     letter-spacing: 0.05em;
   }
 
   .section-title {
-    font-size: clamp(1.6rem, 1.35rem + 1.2vw, 2.15rem);
+    font-size: var(--fs-section-heading);
     margin-bottom: var(--space-16, 16px);
     line-height: 1.15;
   }
 
   .section-desc {
-    font-size: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem);
+    font-size: var(--fs-section-subheading);
     max-width: 56ch;
     line-height: 1.55;
   }
@@ -410,13 +420,13 @@ body > section + section {
   }
 
   .section-title {
-    font-size: clamp(1.35rem, 1.2rem + 0.9vw, 1.75rem);
+    font-size: clamp(1.4rem, 1.25rem + 0.8vw, 1.8rem);
     margin-bottom: var(--space-12, 12px);
     line-height: 1.18;
   }
 
   .section-desc {
-    font-size: 0.94rem;
+    font-size: var(--fs-body-sm);
     max-width: 40ch;
     line-height: 1.5;
   }

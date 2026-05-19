@@ -15,17 +15,17 @@
 
 .page-hero__title {
   font-family: "Inter", sans-serif;
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-size: clamp(2.05rem, 4.3vw, 3.1rem);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.04em;
-  color: var(--navy);
+  color: var(--text-heading);
   margin-bottom: var(--space-16);
 }
 
 .page-hero__sub {
-  color: var(--body-text);
-  font-size: 1.1rem;
+  color: var(--text-body-main);
+  font-size: var(--fs-section-subheading);
   line-height: 1.66;
   max-width: 56ch;
   margin: 0 auto;

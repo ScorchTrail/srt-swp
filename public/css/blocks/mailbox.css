@@ -7,18 +7,18 @@
 
 .mailbox-hero__title {
   font-family: "Inter", sans-serif;
-  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  font-size: clamp(2.25rem, 5vw, 4.1rem);
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -0.05em;
-  color: var(--navy);
+  color: var(--text-heading);
   margin-top: 0;
   margin-bottom: var(--space-12);
 }
 
 .mailbox-hero__sub {
-  color: var(--body-text);
-  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  color: var(--text-body-main);
+  font-size: var(--fs-section-subheading);
   line-height: 1.7;
   max-width: 58ch;
   margin: 0 auto;
@@ -40,7 +40,7 @@
   }
 
   .mailbox-hero__sub {
-    font-size: 0.98rem;
+    font-size: var(--fs-body-sm);
     line-height: 1.55;
   }
 

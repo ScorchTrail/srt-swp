@@ -1,7 +1,7 @@
 /* ============================================================ FOOTER */
 .footer {
   background: linear-gradient(180deg, #0f2340 0%, #0a1928 100%);
-  color: rgba(255, 255, 255, 0.84);
+  color: var(--text-on-dark-main);
   padding: var(--section-pad-y) clamp(1.25rem, 4vw, 3rem) calc(var(--section-pad-y) / 2);
   margin-top: var(--section-pad-y);
 }
@@ -40,18 +40,18 @@
 }
 
 .footer__brand-name {
-  color: #fff;
+  color: var(--white);
   font-family: "Inter", sans-serif;
   font-weight: 800;
   letter-spacing: -0.02em;
-  font-size: 1rem;
+  font-size: clamp(0.98rem, 0.95rem + 0.2vw, 1.06rem);
   line-height: 1.2;
 }
 
 .footer__tagline {
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--text-on-dark-muted);
   line-height: 1.62;
-  font-size: 0.9rem;
+  font-size: var(--fs-body-sm);
   margin-bottom: var(--space-16);
 }
 
@@ -65,12 +65,12 @@
 }
 
 .footer__col-heading {
-  color: #fff;
+  color: var(--white);
   font-family: "Inter", sans-serif;
   font-weight: 700;
   letter-spacing: -0.01em;
   margin-bottom: var(--space-12);
-  font-size: 0.9rem;
+  font-size: var(--fs-tag);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   opacity: 0.9;
@@ -88,9 +88,9 @@
 
 .footer__link {
   display: block;
-  color: rgba(255, 255, 255, 0.76);
+  color: var(--text-on-dark-muted);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: var(--fs-body-sm);
   transition: all 200ms ease;
   position: relative;
   padding: 2px 0 2px 8px;
@@ -98,7 +98,7 @@
 }
 
 .footer__link:hover {
-  color: #fff;
+  color: var(--white);
   padding-left: 4px;
 }
 
@@ -119,9 +119,9 @@
 }
 
 .footer__hours {
-  color: rgba(255, 255, 255, 0.76);
+  color: var(--text-on-dark-muted);
   line-height: 1.8;
-  font-size: 0.9rem;
+  font-size: var(--fs-body-sm);
 }
 
 .footer__bottom {
@@ -136,19 +136,19 @@
 
 .footer__copy,
 .footer__local {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.85rem;
+  color: var(--text-on-dark-subtle);
+  font-size: clamp(0.8rem, 0.78rem + 0.12vw, 0.86rem);
 }
 
 .footer__agency {
   opacity: 0.35;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-on-dark-main);
   transition: opacity 250ms ease, transform 250ms ease;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: clamp(0.8rem, 0.78rem + 0.12vw, 0.86rem);
   font-weight: 700;
 }
 
