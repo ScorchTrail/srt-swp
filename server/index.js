@@ -1,9 +1,42 @@
 const { sendMailboxLead } = require('./mailbox-lead');
+const rateLimit = require('express-rate-limit');
+const validator = require('validator');
 // API endpoint to handle mailbox portal leads
-app.post('/api/mailbox-lead', async (req, res) => {
-  const { name, email, message } = req.body;
+
+// Rate limiter: max 5 requests per 10 minutes per IP
+const mailboxLeadLimiter = rateLimit({
+  windowMs: 10 * 60 * 1000,
+  max: 5,
+  message: { error: 'Too many requests, please try again later.' },
+});
+
+// Helper: sanitize and validate input
+function sanitizeLeadInput(input) {
+  return {
+    name: validator.escape(validator.trim(input.name || '')),
+    company: validator.escape(validator.trim(input.company || '')),
+    phone: validator.escape(validator.trim(input.phone || '')),
+    email: validator.normalizeEmail(input.email || ''),
+    mailboxType: validator.escape(validator.trim(input.mailboxType || '')),
+  };
+}
+
+function validateLeadInput({ name, email, phone, mailboxType }) {
+  if (!name || name.length < 2 || name.length > 100) return 'Invalid name';
+  if (!validator.isEmail(email || '')) return 'Invalid email';
+  if (phone && !validator.isMobilePhone(phone, 'any')) return 'Invalid phone';
+  if (!mailboxType || mailboxType.length < 2 || mailboxType.length > 50) return 'Invalid mailbox type';
+  return null;
+}
+
+app.post('/api/mailbox-lead', mailboxLeadLimiter, async (req, res) => {
+  const sanitized = sanitizeLeadInput(req.body || {});
+  const validationError = validateLeadInput(sanitized);
+  if (validationError) {
+    return res.status(400).json({ error: validationError });
+  }
   try {
-    await sendMailboxLead({ name, email, message });
+    await sendMailboxLead(sanitized);
     res.status(200).json({ success: true });
   } catch (err) {
     res.status(500).json({ error: 'Failed to send lead' });
