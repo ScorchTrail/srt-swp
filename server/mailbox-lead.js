@@ -8,7 +8,7 @@ async function sendMailboxLead({ name, company, phone, email, mailboxType }) {
   try {
     const data = await resend.emails.send({
       from: 'leads@srttrail.dev',
-      to: 's.trail787@gmail.com', // 👈 Put the new recipient email here!
+      to: 's.trail7878@gmail.com', // 👈 Put the new recipient email here!
       subject: 'New Mailbox Portal Lead',
       html: `
         <h2>New Mailbox Lead</h2>
